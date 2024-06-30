@@ -15,7 +15,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '16'
+      - name: clean up
+        run: rm -rf package-lock.json .npmrc
       - name: Install dependencies
-        run: npm ci
+        run: npm i
       - name: Run a test
         run: npm test
