@@ -25,4 +25,4 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: sonarsource/sonar-scanner-cli
-          options: -v ${{ github.workspace }}:/usr/src -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN_TEST }} -e SONAR_HOST_URL=${{ variables.SONAR_URL }}
+          options: -v ${{ github.workspace }}:/usr/src -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN_TEST }} -e SONAR_HOST_URL=${{ vars.SONAR_URL }}
