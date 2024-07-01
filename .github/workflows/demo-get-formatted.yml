@@ -15,11 +15,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '16'
-      - name: clean up
-        run: rm -rf package-lock.json .npmrc
-      - name: Install dependencies
-        run: npm i
-      - name: Run a test
-        run: npm test
-      - name: Run SonarScanner
-        run: docker run -v ${{ github.workspace }}:/usr/src -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN_TEST }} -e SONAR_HOST_URL=${{ vars.SONAR_URL }} sonarsource/sonar-scanner-cli
+      - name: Running scanner
+        uses: actions/sonar-scanner-poc-action@v1
+        with:
+          sonar-host: ${{ vars.SONAR_URL }}
+          sonar-token: ${{ secrets.SONAR_TOKEN_TEST }}
