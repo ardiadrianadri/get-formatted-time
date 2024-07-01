@@ -22,7 +22,4 @@ jobs:
       - name: Run a test
         run: npm test
       - name: Run SonarScanner
-        uses: addnab/docker-run-action@v3
-        with:
-          image: sonarsource/sonar-scanner-cli
-          options: -v ${{ github.workspace }}:/usr/src -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN_TEST }} -e SONAR_HOST_URL=${{ vars.SONAR_URL }}
+        run: docker run -v ${{ github.workspace }}:/usr/src -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN_TEST }} -e SONAR_HOST_URL=${{ vars.SONAR_URL }} sonarsource/sonar-scanner-cli
