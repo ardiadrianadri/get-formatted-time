@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '16'
       - name: Running scanner
-        uses: actions/sonar-scanner-poc-action@v1
+        uses: ardiadrianadri/sonar-scanner-poc-action@v1
         with:
           sonar-host: ${{ vars.SONAR_URL }}
           sonar-token: ${{ secrets.SONAR_TOKEN_TEST }}
